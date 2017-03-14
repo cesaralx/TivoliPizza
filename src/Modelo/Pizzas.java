@@ -1,16 +1,24 @@
 package Modelo;
 
 import java.sql.Blob;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import Modelo.Conexion;
 
 public class Pizzas {
 
+    Conexion objPiz= new Conexion();
     private int idProductos=0;
     private int idPizza=0;
     private String nombre="";
     private double costo=0;
     private double productoTama=0;
     private String nombreTama="";
-    private Blob imagen;
+    private String imagen;
     private String ingredientes="";
     private String status="";
 
@@ -62,11 +70,11 @@ public class Pizzas {
         this.nombreTama = nombreTama;
     }
 
-    public Blob getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
-    public void setImagen(Blob imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
 

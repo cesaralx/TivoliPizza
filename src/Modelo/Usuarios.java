@@ -6,12 +6,11 @@ import javax.swing.JOptionPane;
 import Modelo.Conexion;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.table.DefaultTableModel;
 
 
 public class Usuarios {
 
-private int contador=0;    
+    
 private int idUsuarios=0;
 private String usrNombre="";
 private String password="";
@@ -22,14 +21,6 @@ private String estatusUsu="";
 Conexion obj= new Conexion();
 
 public Usuarios() {
-    }
-
-    public String getEstatusUsu() {
-        return estatusUsu;
-    }
-
-    public void setEstatusUsu(String estatusUsu) {
-        this.estatusUsu = estatusUsu;
     }
 
     public int getIdUsuarios() {
@@ -71,15 +62,14 @@ public void altaUsuario(){
     PreparedStatement conectar;
     obj.conectar();
         try {
-            conectar = obj.conexion.prepareStatement("insert into usuarios values(?,?,?,?,?)");
+            conectar = obj.conexion.prepareStatement("insert into usuarios values(?,?,?,?)");
             conectar.setInt(1, idUsuarios);
             conectar.setString(2, usrNombre);
             conectar.setString(3, password);
-            conectar.setString(4, estatusUsu);
-            conectar.setString(5, fechaAlta);
+            conectar.setString(4, fechaAlta);
             //ejecutar sentencia
             int resp = conectar.executeUpdate();
-            JOptionPane.showMessageDialog(null, resp + "Registro Exitoso");
+            JOptionPane.showMessageDialog(null, resp + "Fila(s)afecta(s)");
         } catch (SQLException ex) {
     JOptionPane.showMessageDialog(null, "Error al registrar");
           
@@ -181,38 +171,6 @@ public int validarUsuario(){
 
     return i;
 
-}
-public void consultaTodo(DefaultTableModel modelito){
- Object[] obj1= new Object[5];
- PreparedStatement com;
- ResultSet res;
- obj.conectar();
- 
-     if(contador ==0){
-     modelito.addColumn("Codigo");
-     modelito.addColumn("Nombre");
-     modelito.addColumn("Contraseña");
-     modelito.addColumn("Estatus");
-     modelito.addColumn("Fecha Alta");
-     contador++;
-     
-     }
-                
-    try {
-        com=obj.conexion.prepareCall("Select * from usuarios");
-        res=com.executeQuery();
-                
-        while(res.next()){
-            
-            for (int i = 0; i < 5; i++) {
-            obj1[i] = res.getObject(i+1);
-            }
-        modelito.addRow(obj1);
-        }
-    } catch (SQLException ex) {
-        Logger.getLogger(Clientes.class.getName()).log(Level.SEVERE, null, ex);
-    }
-   
 }
 
 }

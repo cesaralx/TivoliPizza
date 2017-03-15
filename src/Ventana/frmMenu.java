@@ -1,24 +1,14 @@
 package Ventana;
 
-import Modelo.Conexion;
 import java.awt.Color;
 import java.awt.PageAttributes;
 import java.awt.color.ColorSpace;
 import javax.swing.JColorChooser;
 import Modelo.Usuarios;
-import java.sql.Connection;
-import javax.swing.JOptionPane;
-
-import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
 
  public class frmMenu extends javax.swing.JFrame {
      Usuarios objUs = new Usuarios();
-     
      int contadorcito=0;
-     Conexion conexion =  new Conexion();
-    Connection conn = conexion.conectar();
      
     public frmMenu() {
         initComponents();
@@ -56,7 +46,7 @@ import net.sf.jasperreports.view.JasperViewer;
         PanelUSuario = new javax.swing.JPanel();
         jButton5 = new javax.swing.JButton();
         PanelReporte = new javax.swing.JPanel();
-        jbnReporteCliente = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         PanelVenta = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jlbUsuario1 = new javax.swing.JLabel();
@@ -70,7 +60,7 @@ import net.sf.jasperreports.view.JasperViewer;
         jSeparator1 = new javax.swing.JSeparator();
         jbnCerrar = new javax.swing.JButton();
         jlbUsuario2 = new javax.swing.JLabel();
-        jlbUsuario5 = new javax.swing.JLabel();
+        jtxUs = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -341,30 +331,23 @@ import net.sf.jasperreports.view.JasperViewer;
 
         PanelContenido.add(PanelUSuario, "card6");
 
-        PanelReporte.setBackground(new java.awt.Color(245, 245, 186));
-
-        jbnReporteCliente.setText("Reporte Cliente");
-        jbnReporteCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbnReporteClienteActionPerformed(evt);
-            }
-        });
+        jButton6.setText("Reportes");
 
         javax.swing.GroupLayout PanelReporteLayout = new javax.swing.GroupLayout(PanelReporte);
         PanelReporte.setLayout(PanelReporteLayout);
         PanelReporteLayout.setHorizontalGroup(
             PanelReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelReporteLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jbnReporteCliente)
-                .addContainerGap(536, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(557, Short.MAX_VALUE))
         );
         PanelReporteLayout.setVerticalGroup(
             PanelReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelReporteLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(jbnReporteCliente)
-                .addContainerGap(396, Short.MAX_VALUE))
+                .addGap(42, 42, 42)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(389, Short.MAX_VALUE))
         );
 
         PanelContenido.add(PanelReporte, "card7");
@@ -462,9 +445,6 @@ import net.sf.jasperreports.view.JasperViewer;
         jlbUsuario2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jlbUsuario2.setText("Usuario:");
 
-        jlbUsuario5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jlbUsuario5.setText("Usuario:");
-
         javax.swing.GroupLayout panelCuentaLayout = new javax.swing.GroupLayout(panelCuenta);
         panelCuenta.setLayout(panelCuentaLayout);
         panelCuentaLayout.setHorizontalGroup(
@@ -475,8 +455,8 @@ import net.sf.jasperreports.view.JasperViewer;
                 .addGap(72, 72, 72)
                 .addGroup(panelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                    .addComponent(jlbUsuario5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                    .addComponent(jtxUs))
+                .addGap(25, 25, 25)
                 .addComponent(jbnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(panelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCuentaLayout.createSequentialGroup()
@@ -491,7 +471,7 @@ import net.sf.jasperreports.view.JasperViewer;
                     .addComponent(iconUsr)
                     .addGroup(panelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(panelCuentaLayout.createSequentialGroup()
-                            .addComponent(jlbUsuario5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxUs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jbnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -645,19 +625,6 @@ import net.sf.jasperreports.view.JasperViewer;
         }
         
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jbnReporteClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbnReporteClienteActionPerformed
-     
-   try {
-            JasperReport reporteClientes;
-            reporteClientes = (JasperReport)JRLoader.loadObjectFromFile("C:\\Users\\alexi\\Documents\\NetBeansProjects\\trivoliPizza\\src\\reporte\\rcliente.jasper");
-            JasperPrint print = JasperFillManager.fillReport(reporteClientes, null, conn);
-            JasperViewer view = new JasperViewer(print,false);
-            view.setVisible(true);
-        } catch (JRException e) {
-            JOptionPane.showMessageDialog(this, "Error al generar reporte: "+e);
-        }
-    }//GEN-LAST:event_jbnReporteClienteActionPerformed
     
     /**
      * @param args the command line arguments
@@ -713,6 +680,7 @@ import net.sf.jasperreports.view.JasperViewer;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -724,7 +692,6 @@ import net.sf.jasperreports.view.JasperViewer;
     private javax.swing.JButton jbnCerrar;
     private javax.swing.JButton jbnInventario;
     private javax.swing.JButton jbnPedidos;
-    private javax.swing.JButton jbnReporteCliente;
     private javax.swing.JButton jbnReportes;
     private javax.swing.JButton jbnUsuarios;
     private javax.swing.JButton jbnVenta;
@@ -732,7 +699,7 @@ import net.sf.jasperreports.view.JasperViewer;
     private javax.swing.JLabel jlbUsuario2;
     private javax.swing.JLabel jlbUsuario3;
     private javax.swing.JLabel jlbUsuario4;
-    private javax.swing.JLabel jlbUsuario5;
+    private javax.swing.JTextField jtxUs;
     private javax.swing.JPanel panelCuenta;
     // End of variables declaration//GEN-END:variables
 }

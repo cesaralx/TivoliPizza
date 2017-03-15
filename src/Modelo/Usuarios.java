@@ -129,7 +129,7 @@ public void modificarUsuario(){
             conectar.setString(2, password);
             conectar.setString(3, estatusUsu);
             conectar.setString(4, fechaAlta);
-            conectar.setInt(5, idUsuarios);
+            
              //ejecutar sentencia
             int resp = conectar.executeUpdate();
             JOptionPane.showMessageDialog(null, resp + "Fila(s)afecta(s)");

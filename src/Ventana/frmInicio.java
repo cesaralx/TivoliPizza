@@ -3,6 +3,7 @@ package Ventana;
 
 import Modelo.Usuarios;
 import javax.swing.JOptionPane;
+import Ventana.frmMenu;
 public class frmInicio extends javax.swing.JFrame {
     public frmInicio() {
         initComponents();
@@ -156,7 +157,7 @@ public class frmInicio extends javax.swing.JFrame {
         if(validar==1){
         this.setVisible(false);
         menu.setVisible(true);
-      
+       menu.jlbLogin.setText(jtxUsuario.getText());
         }
         if(validar==2){
         JOptionPane.showMessageDialog(this, "Contraseña incorrecta");
